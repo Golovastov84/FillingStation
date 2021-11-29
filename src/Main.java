@@ -1,11 +1,31 @@
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Информация о системе");
-        System.out.println("Операционная система: ");
-        System.out.println(System.getProperty("os.name") + " " + System.getProperty("os.version"));
-        System.out.println("Количество ядер процессора: ");
-        System.out.println(Runtime.getRuntime().availableProcessors());
-        System.out.println("Количество памяти, доступной JVM: ");
-        System.out.println(Runtime.getRuntime().maxMemory()/1024/1024 + "Mb");
+        System.out.println("Система расчёта стоимости топлива");
+        int fuelType = 92;
+        int amount = 420;
+        int maxAmount = 400;
+        double fuel92price = 60.2;
+        double fuel95price = 67.33;
+        double fuelPrice = 0;
+        if(fuelType == 92) {
+            fuelPrice = fuel92price;
+        }
+        else if(fuelType == 95) {
+            fuelPrice = fuel95price;
+        }
+        else {
+            System.out.println("У нас в продаже нет бензина с таким октановым числом.");
+        }
+        if(amount < 1) {
+            System.out.println("Указано слишком малое количество топлива");
+            amount = 0;
+        }
+        if(amount > maxAmount) {
+            System.out.println("Указанное количество топлива превышает максимально допустимое");
+        }
+        System.out.println("Цена выбранного топлива: " + fuelPrice + " руб.");
+        double totalPrice = fuelPrice * amount;
+        System.out.println("Общая стоимость заправки: " + totalPrice + " руб.");
     }
 }
