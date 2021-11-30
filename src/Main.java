@@ -1,5 +1,4 @@
 public class Main {
-
     public static void main(String[] args) {
         System.out.println("Система расчёта стоимости топлива");
         int fuelType = 92;
@@ -15,7 +14,7 @@ public class Main {
             fuelPrice = fuel95price;
         }
         else {
-            System.out.println("У нас в продаже нет бензина с таким октановым числом.");
+            System.out.println("Указан неверный тип топлива");
         }
         if(amount < 1) {
             System.out.println("Указано слишком малое количество топлива");
@@ -23,6 +22,9 @@ public class Main {
         }
         if(amount > maxAmount) {
             System.out.println("Указанное количество топлива превышает максимально допустимое");
+            System.out.println("Максимальное количество отпускаемого топлива за одну заправку составляет "
+                    + maxAmount + " л.");
+            amount =  maxAmount;
         }
         System.out.println("Цена выбранного топлива: " + fuelPrice + " руб.");
         double totalPrice = fuelPrice * amount;
